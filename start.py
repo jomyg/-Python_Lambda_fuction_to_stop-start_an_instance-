@@ -5,10 +5,7 @@ def lambda_handler(event, context):
   ec2 = boto3.client('ec2',region_name="ap-southeast-1")
   
   instances = ec2.describe_instances(Filters=[  {'Name':'tag:Name', 'Values':["webserver"]},
-                                              {'Name':'tag:Project', 'Values':["zomato"]}
-                                              
-                                           ]
-                                    )
+                                              {'Name':'tag:Project', 'Values':["zomato"]} ]  )
 
   for item in instances['Reservations']:
     
